@@ -1,11 +1,50 @@
 body{
     background-color: aqua;
+   
+
 }
 
 #ducksContainer{
     display: flex;
     flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
 
 }
+
+.duck img{
+    width: 300px;
+    height: 20VW;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgb(46, 46, 73);
+   
+}
+.duck {
+
+    border: 2px solid rgb(50, 50, 78);
+    margin: 20px;
+    background-color: crimson;
+
+}
+.buttons{
+    text-align: center;
+}
+h1{
+    text-align: center;
+    background-color: burlywood;
+}
+h2{
+    background-color: rgb(30, 210, 90);
+}
+p{
+    font-family: cursive;
+}
+
+
+
+
+
+
+
 
 
