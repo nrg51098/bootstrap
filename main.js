@@ -16,7 +16,7 @@ const ducks = [
         breed: 'rubber',
         size: 'medium', // one of: small, medium, large
         temperament: 'quiet',
-        imageUrl: 'https://bit.ly/3bR2LNS',
+        imageUrl: 'https://image.shutterstock.com/image-vector/rubber-duck-ducky-bath-toy-260nw-1061407055.jpg',
         gender: 'male', // one of: male, female
         age: 6,// int
         isRubber: true, //bool
@@ -27,7 +27,7 @@ const ducks = [
         breed: 'rubber',
         size: 'small', // one of: small, medium, large
         temperament: 'short-tempered',
-        imageUrl: 'https://bit.ly/3bR2LNS',
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/Donald_Duck.svg/1200px-Donald_Duck.svg.png',
         gender: 'female', // one of: male, female
         age: 8,// int
         isRubber: true, //bool
@@ -49,7 +49,7 @@ const ducks = [
         breed: 'saxony',
         size: 'small', // one of: small, medium, large
         temperament: 'irritable',
-        imageUrl: 'https://bit.ly/2W6iUIx',
+        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR3RRwOIxGEIlf5HW0YFlYA0d_4WTwHLg7rkihfIMQG1bSwB1CS&usqp=CAU',
         gender: 'male', // one of: male, female
         age: 5,// int
         isRubber: false, //bool
@@ -71,7 +71,7 @@ const ducks = [
         breed: 'Magpie',
         size: 'large', // one of: small, medium, large
         temperament: 'social',
-        imageUrl: 'https://bit.ly/3aMSlNK',
+        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR3RRwOIxGEIlf5HW0YFlYA0d_4WTwHLg7rkihfIMQG1bSwB1CS&usqp=CAU',
         gender: 'female', // one of: male, female
         age: 6,// int
         isRubber: false, //bool
@@ -99,11 +99,14 @@ const ducks = [
   
     for (let i = 0; i < ducksCollection.length; i++) {
       domString += `
-        <div class="duck">
+        <div class="duck card">
           <h2>${ducksCollection[i].name}</h2>
           <img src="${ducksCollection[i].imageUrl}" alt="image of ${ducksCollection[i].name} duck">
-          <p>This ${ducksCollection[i].breed} pie is a ${ducksCollection[i].size} pie, it's owned by ${ducksCollection[i].gender}, and has a ${ducksCollection[i].age} crust.</p>
-          <h4>Price: ${ducksCollection[i].isRubber}</h4>
+          <p>${ducksCollection[i].breed}</p>
+          <p> ${ducksCollection[i].size} </p>          
+          <p> ${ducksCollection[i].gender} </p>          
+          <p>${ducksCollection[i].age}</p>        
+          <h4>Is Rubber: ${ducksCollection[i].isRubber}</h4>
         </div>
       `;
     }
@@ -112,11 +115,37 @@ const ducks = [
   }
 
 
+const filterDucks=(event)=>{
+    filteredDucks = [];
+const buttonId = event.target.id;
+for (let i = 0; i < ducks.length; i++) {
+    if(ducks[i].size === buttonId){
+        filteredDucks.push(ducks[i]);
+    };    
+}
+
+    buildDucks(filteredDucks);
+}
+
+
+
+
+  const addEvents =() =>{
+      const duckFilter = document.querySelectorAll("button");
+      console.log(duckFilter);
+      for (let i = 0; i < duckFilter.length; i++) {
+          duckFilter[i].addEventListener("click", filterDucks);
+          
+      }
+  }
+
+
 
 
 
   const init = () => {
     buildDucks(ducks);
+    addEvents();
     
   }
   
